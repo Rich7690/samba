@@ -295,6 +295,7 @@ else
     echo "Skipping ionice call"
     #[[ ${NMBD:-""} ]] && ionice -c 3 nmbd -D
     #exec ionice -c 3 smbd -FS --no-process-group </dev/null
-    smbd -FS --no-process-group </dev/null
+    [[ ${NMBD:-""} ]] && nmbd -D
+    smbd -F --no-process-group </dev/null
 fi
 
